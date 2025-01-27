@@ -102,14 +102,13 @@ export default function SongVotingQueue() {
   }
   
   async function refreshStreamInterval() {
-    const res = await fetch("api/streams", {
+    await fetch("api/streams", {
       method:"POST",
       body: JSON.stringify({
         createdId: "",
         url:inputLink
       })
     });
-
   }
 
   useEffect(() => {

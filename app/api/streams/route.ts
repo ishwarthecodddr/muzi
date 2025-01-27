@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { prismaClient } from "@/app/lib/db";
-// @ts-expect-error
+// @ts-expect-error  some type error occured
 import youtubesearchapi from "youtube-search-api";
-let YT_REG =
+const YT_REG =
   /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:m\.)?(?:youtu(?:be)?\.com\/(?:v\/|embed\/|watch(?:\/|\?v=))|youtu\.be\/)((?:\w|-){11})(?:\S+)?$/;
 const CreateStreamSchema = z.object({
   creatorId: z.string(),
@@ -11,7 +11,7 @@ const CreateStreamSchema = z.object({
 });
 export async function POST(req: NextRequest) {
   try {
-    const jsonData = await req.json(); 
+    const jsonData = await req.json();
     const data = CreateStreamSchema.parse(jsonData); // Now pass the resolved object to Zod
 
     const isYturl = data.url.match(YT_REG);
@@ -49,12 +49,11 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       ...stream,
-      upvote:true
-      
+      upvote: true,
     });
   } catch (error) {
     console.log(error);
-    
+
     return NextResponse.json({ msg: error }, { status: 411 });
   }
 }
@@ -63,10 +62,10 @@ export async function GET(req: NextRequest) {
   const creatorId = req.nextUrl.searchParams.get("creatorId");
   const streams = await prismaClient.stream.findMany({
     where: {
-      userid:creatorId??""
-    }
-  })
+      userid: creatorId ?? "",
+    },
+  });
   return NextResponse.json({
-    streams
-  })
+    streams,
+  });
 }
