@@ -3,7 +3,7 @@ import { z } from "zod";
 import { prismaClient } from "@/app/lib/db";
 //@ts-ignore
 import youtubesearchapi from "youtube-search-api";
-var YT_REG =
+let YT_REG =
   /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:m\.)?(?:youtu(?:be)?\.com\/(?:v\/|embed\/|watch(?:\/|\?v=))|youtu\.be\/)((?:\w|-){11})(?:\S+)?$/;
 const CreateStreamSchema = z.object({
   creatorId: z.string(),

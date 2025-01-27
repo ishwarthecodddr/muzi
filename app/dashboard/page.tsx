@@ -7,8 +7,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ThumbsUp, ThumbsDown, Play, Moon, Sun, Share2 } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import Image from "next/image"
-import axios from "axios"
-
 // Mock data for demonstration
 const initialQueue = [
   { id: 1, title: "Barsaat Bana Lo", votes: 5, videoId: "ZflXzCegeGc" },
