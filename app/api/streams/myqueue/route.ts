@@ -45,7 +45,7 @@ export async function GET(req: NextRequest) {
     });
 
     return NextResponse.json({
-        streams: streams.map(({ _count, ...rest }) => ({
+        streams: streams.map(({ _count, ...rest }:{_count:{upvotes:number},[key: string]: any}) => ({
             ...rest,
             upvotes: _count?.upvotes ?? 0
         }))
