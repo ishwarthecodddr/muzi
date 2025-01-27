@@ -21,7 +21,7 @@ function checkFields<T>(obj: T): void {
   // Implementation of checkFields
 }
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
     const session = await getServerSession();
     const user = await prismaClient.user.findFirst({
         where: {
