@@ -51,13 +51,13 @@ export default function SongVotingQueue() {
   //   }
   // }
 
-  const playNextSong = () => {
-    if (queue.length > 0) {
-      const sortedQueue = [...queue].sort((a, b) => b.votes - a.votes)
-      const nextSong = sortedQueue[0]
-      handlePlay(nextSong.videoId)
-    }
-  }
+  // const playNextSong = () => {
+  //   if (queue.length > 0) {
+  //     const sortedQueue = [...queue].sort((a, b) => b.votes - a.votes)
+  //     const nextSong = sortedQueue[0]
+  //     handlePlay(nextSong.videoId)
+  //   }
+  // }
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode)
