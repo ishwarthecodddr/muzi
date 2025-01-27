@@ -45,10 +45,9 @@ export async function GET(req: NextRequest) {
     });
 
     return NextResponse.json({
-        //@ts-@ts-expect-error
         streams: streams.map(({ _count, ...rest }) => ({
             ...rest,
-            upvotes: _count.upvotes
+            upvotes: _count?.upvotes ?? 0
         }))
     });
 }
