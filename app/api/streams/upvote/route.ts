@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
         })
     } catch (error){
         return NextResponse.json({
-            msg: "Error while upvoting"
+            msg: "Error while upvoting"+error
         },{status:403})
     }
 }

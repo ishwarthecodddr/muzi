@@ -45,7 +45,7 @@ export default async function GET(req: NextRequest) {
     });
 
     return NextResponse.json({
-        //@ts-ignore
+        //@ts-@ts-expect-error
         streams: streams.map(({ _count, ...rest }) => ({
             ...rest,
             upvotes: _count.upvotes

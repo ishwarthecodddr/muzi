@@ -45,11 +45,11 @@ export default function SongVotingQueue() {
     }
   }, [])
 
-  const onPlayerStateChange = (event: any) => {
-    if (event.data === 0) {
-      playNextSong()
-    }
-  }
+  // const onPlayerStateChange = (event: any) => {
+  //   if (event.data === 0) {
+  //     playNextSong()
+  //   }
+  // }
 
   const playNextSong = () => {
     if (queue.length > 0) {
