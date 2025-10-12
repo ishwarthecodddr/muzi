@@ -2,6 +2,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prismaClient } from "@/app/lib/db";
 import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/lib/auth";
 
 // Define the OmitWithTag type
 type OmitWithTag<T, K extends keyof T> = Omit<T, K> & { [key: string]: never };
@@ -22,7 +23,7 @@ function checkFields<T>(obj: T): void {
 }
 
 export async function GET(req: NextRequest) {
-    const session = await getServerSession();
+    const session = await getServerSession(authOptions);
     const user = await prismaClient.user.findFirst({
         where: {
             email: session?.user?.email || ""

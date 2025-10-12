@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -101,7 +101,7 @@ export default function SongVotingQueue() {
     })
   }
   
-  async function refreshStreamInterval() {
+  const refreshStreamInterval = useCallback(async () => {
     await fetch("api/streams", {
       method:"POST",
       body: JSON.stringify({
@@ -109,7 +109,7 @@ export default function SongVotingQueue() {
         url:inputLink
       })
     });
-  }
+  }, [inputLink])
 
   useEffect(() => {
     refreshStreamInterval()
@@ -117,7 +117,7 @@ export default function SongVotingQueue() {
       refreshStreamInterval()
     }, 10000)
     return () => clearInterval(interval)
-  }, [])
+  }, [refreshStreamInterval])
 
   return (
     <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
