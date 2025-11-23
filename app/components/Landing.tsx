@@ -151,7 +151,7 @@ export default function Landing() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Don't just watch—participate. Shape the live stream with your music choices and see your picks played live.
+                    Don&apos;t just watch—participate. Shape the live stream with your music choices and see your picks played live.
                   </p>
                 </CardContent>
               </Card>
