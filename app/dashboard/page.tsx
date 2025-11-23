@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import Image from "next/image"
 // Mock data for demonstration
 const initialQueue = [
-  { id: 1, title: "Barsaat Bana Lo", votes: 5, videoId: "ZflXzCegeGc" },
+  { id: 1, title: "Frontend Tools", votes: 5, videoId: "e78HDJ1_vuU" },
   { id: 2, title: "Bikhra", votes: 3, videoId: "aRzbHxJZSTo" },
   { id: 3, title: "Sunday", votes: 1, videoId: "lpyQhpksHRI" },
 ]
@@ -123,11 +123,11 @@ export default function SongVotingQueue() {
     <div className="flex flex-col min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
       <main className="flex-1 p-4">
         <div className="flex justify-between items-center mb-4">
-          <Button variant="ghost" size="icon" onClick={toggleDarkMode}>
-            {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          <Button variant="ghost" size="icon" className="dark:text-white text-black" onClick={toggleDarkMode}>
+            {darkMode ? <Sun className="h-5 w-5 " /> : <Moon className="h-5 w-5" />}
             <span className="sr-only">Toggle dark mode</span>
           </Button>
-          <Button variant="outline" onClick={handleShare} className="flex items-center gap-2">
+          <Button variant="outline" onClick={handleShare} className="flex dark:text-white text-black items-center gap-2">
             <Share2 className="h-4 w-4" />
             Share Queue
           </Button>
@@ -139,7 +139,7 @@ export default function SongVotingQueue() {
           </Alert>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 border">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
           <Card>
             <CardContent className="p-6">
               <h2 className="text-2xl font-bold mb-4">Add a Song</h2>
@@ -159,7 +159,7 @@ export default function SongVotingQueue() {
               {previewVideo && (
                 <div className="mt-4">
                   <h3 className="text-xl font-bold mb-2">Preview</h3>
-                  <div className="aspect-video">
+                  <div className="aspect-video">  
                     <iframe
                       width="100%"
                       height="100%"
